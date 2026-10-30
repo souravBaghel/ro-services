@@ -4,10 +4,10 @@ import Checklist from "../ui/Checklist";
 import Section from "../ui/Section";
 import { heroChecks } from "../../data/content";
 
-export default function Hero() {
+export default function Hero({ onBook }) {
   return (
     <div id="home" className="relative overflow-hidden bg-hero-bg">
-      <img src={assets.heroBg} alt="" className="pointer-events-none absolute inset-0 size-full object-cover" />
+      {/* <img src={assets.heroBg} alt="" className="pointer-events-none absolute inset-0 size-full object-cover" /> */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white from-[43%] to-white/0" />
       <Section className="relative py-12">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
@@ -25,7 +25,7 @@ export default function Hero() {
               <Checklist items={heroChecks} />
             </div>
             <div className="flex flex-wrap gap-4">
-              <Button>Book a Service</Button>
+              <Button onClick={onBook}>Book a Service</Button>
               <Button variant="outline">Explore Services</Button>
             </div>
           </div>

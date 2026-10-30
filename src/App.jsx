@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "./components/sections/Header";
 import Hero from "./components/sections/Hero";
 import Categories from "./components/sections/Categories";
@@ -7,21 +8,25 @@ import HowItWorks from "./components/sections/HowItWorks";
 import Team from "./components/sections/Team";
 import FooterCTA from "./components/sections/FooterCTA";
 import Footer from "./components/sections/Footer";
+import BookingForm from "./components/ui/BookingForm";
 
 export default function App() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col bg-page">
-      <Header />
+      <Header onBook={() => setBookingOpen(true)} />
       <main>
-        <Hero />
+        <Hero onBook={() => setBookingOpen(true)} />
         <Categories />
-        <About />
+        <About onBook={() => setBookingOpen(true)} />
         <PopularServices />
         <HowItWorks />
         <Team />
         <FooterCTA />
       </main>
       <Footer />
+      {bookingOpen && <BookingForm onClose={() => setBookingOpen(false)} />}
     </div>
   );
 }

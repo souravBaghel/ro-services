@@ -21,7 +21,7 @@ export default function Categories() {
     <Section id="services" className="bg-white py-24">
       <div className="flex flex-col gap-14">
         <SectionHeader overline="What We Do" align="center">
-          Our Services in <span className="text-accent">Ahmedabad</span>
+          Our Services in  <span className="text-accent">Ahmedabad</span>
         </SectionHeader>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((c) => <CategoryCard key={c.title} {...c} />)}

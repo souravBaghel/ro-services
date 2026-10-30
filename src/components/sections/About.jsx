@@ -5,7 +5,7 @@ import Overline from "../ui/Overline";
 import Section from "../ui/Section";
 import { aboutChecks } from "../../data/content";
 
-export default function About() {
+export default function About({ onBook }) {
   return (
     <Section id="about" className="bg-mint py-20">
       <div className="grid items-center gap-12 lg:grid-cols-[579px_1fr] lg:gap-24">
@@ -19,7 +19,7 @@ export default function About() {
             </p>
           </div>
           <Checklist items={aboutChecks} />
-          <Button className="w-fit">Book a Service</Button>
+          <Button className="w-fit" onClick={onBook}>Book a Service</Button>
         </div>
       </div>
     </Section>

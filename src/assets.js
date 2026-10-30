@@ -1,30 +1,39 @@
-// NOTE: These are temporary Figma asset URLs (valid ~7 days).
-// Download each one into /public/assets and replace the URL with "/assets/<file>".
+import heroMain from "./assets/hero-main.png";
+import about from "./assets/about.png";
+import serviceInstall from "./assets/service-cleaning.jpg";
+import serviceFilters from "./assets/service-filters.jpg";
+import serviceCleaning from "./assets/deep-clening.jpg";
+import serviceRepair from "./assets/service-install.png";
+import teamOne from "./assets/team-one.svg";
+import teamTwo from "./assets/team-two.svg";
+import teamThree from "./assets/team-three.svg";
+import phone from "./assets/phone.svg";
+import truck from "./assets/truck.svg";
+import thumbsUp from "./assets/thumbs-up.svg";
+
+const icon = (drawing) =>
+  `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#146b58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${drawing}</svg>`)}`;
+
+const checkIcon = `data:image/svg+xml,${encodeURIComponent('<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.33299 2.5L3.75012 7.083L1.66699 4.99982" stroke-width="2" stroke-linecap="round" stroke="#0D5C4C"/></svg>')}`;
+
+
 export const assets = {
-  heroBg: "https://www.figma.com/api/mcp/asset/ddb404c4-27e6-4777-b176-398e9a5cfe0f.png",
-  heroMain: "https://www.figma.com/api/mcp/asset/9a134ac2-f5a1-491a-8bcc-77014f540600.png",
-  about: "https://www.figma.com/api/mcp/asset/8a7e5f5a-a2b3-42a7-a3c1-05c86f5fb833.png",
-  whatsapp: "https://www.figma.com/api/mcp/asset/9344440c-b3ba-4178-8d38-dd6adf71aa33.png",
-  service: [
-    "https://www.figma.com/api/mcp/asset/41890555-8b61-4e0d-bd99-4a18f41d5681.png",
-    "https://www.figma.com/api/mcp/asset/edff9403-82c8-44a7-96a8-33286f273881.png",
-    "https://www.figma.com/api/mcp/asset/479b27a9-533b-43bc-b872-0b4796d3fa84.png",
-    "https://www.figma.com/api/mcp/asset/6b4ecfb1-e461-4fa7-9fae-eb41b5258046.png",
-  ],
-  team: [
-    "https://www.figma.com/api/mcp/asset/6415e6eb-8e4b-439a-b2e8-1292e8516e9b.png",
-    "https://www.figma.com/api/mcp/asset/64aba090-9e62-47a5-bac4-2fb29e28b5b2.png",
-    "https://www.figma.com/api/mcp/asset/7f478610-8309-43ce-9894-6af388b28416.png",
-  ],
+  heroBg: heroMain,
+  heroMain,
+  about,
+  whatsapp: icon('<path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.4 2.7 2 4.3 4.7 5"/>'),
+  service: [serviceInstall, serviceFilters, serviceCleaning, serviceRepair],
+  team: [teamOne, teamTwo, teamThree],
   icons: {
-    check: "https://www.figma.com/api/mcp/asset/b665db48-2a4d-4d8f-a700-94d46ebb846b.svg",
-    responseFrame: "https://www.figma.com/api/mcp/asset/e2224fde-05d2-46ab-8ced-6db61b412e58.svg",
-    wrench: "https://www.figma.com/api/mcp/asset/35b5b480-d613-4359-b017-88e07134b349.svg",
-    bolt: "https://www.figma.com/api/mcp/asset/ca011cf3-a13d-48cf-b196-039392775198.svg",
-    brush: "https://www.figma.com/api/mcp/asset/e7e07415-6f8e-4925-aff9-0fddc752406f.svg",
-    sparkles: "https://www.figma.com/api/mcp/asset/166903ff-2c24-4fcf-9fd0-2d41fbc02852.svg",
-    phone: "https://www.figma.com/api/mcp/asset/0064a861-98fd-4143-a4d9-4714b811f00e.svg",
-    truck: "https://www.figma.com/api/mcp/asset/f364eb09-1fb0-49d0-baab-e03a5aa4ece1.svg",
-    thumbsUp: "https://www.figma.com/api/mcp/asset/1d4aae64-b0bf-4208-87ff-a7114e3da442.svg",
+    check: checkIcon,
+    responseFrame: icon('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+    wrench: icon('<path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 18l3 3 5.3-5.3a5 5 0 0 0 6.4-6.4L14 12l-2-2Z"/>'),
+    bolt: icon('<path d="m13 2-3 9h6l-5 11 1-9H6l7-11Z"/>'),
+    brush: icon('<path d="m14 4 6 6M4 20l8.5-8.5M11 5l8 8-4 4-8-8Z"/><path d="M4 20c2.5 0 4-1.5 4-4"/>'),
+    sparkles: icon('<path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/>'),
+    phone,
+    truck,
+    thumbsUp,
+   
   },
 };
