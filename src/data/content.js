@@ -1,6 +1,6 @@
 import { assets } from "../assets";
 
-export const PHONE = "(+91) 8264648335";
+export const PHONE = "(800) 555-019999";
 
 export const navLinks = [
   { label: "Home", href: "#home" },
