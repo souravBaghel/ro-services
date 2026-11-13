@@ -17,7 +17,7 @@ export default function FooterCTA() {
             <a href={`tel:${PHONE.replace(/[^\d]/g, "")}`} className="text-[22px] font-extrabold text-brand">{PHONE}</a>
           </div>
           <Button>
-            Whatsup
+            WhatsApp
             <img src={assets.whatsapp} alt="" className="size-7 object-cover" />
           </Button>
         </div>

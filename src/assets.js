@@ -10,6 +10,7 @@ import teamThree from "./assets/team-three.svg";
 import phone from "./assets/phone.svg";
 import truck from "./assets/truck.svg";
 import thumbsUp from "./assets/thumbs-up.svg";
+import whatsapp from "./assets/whatsapp-icon.svg";
 
 const icon = (drawing) =>
   `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#146b58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${drawing}</svg>`)}`;
@@ -21,7 +22,7 @@ export const assets = {
   heroBg: heroMain,
   heroMain,
   about,
-  whatsapp: icon('<path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.4 2.7 2 4.3 4.7 5"/>'),
+  whatsapp,
   service: [serviceInstall, serviceFilters, serviceCleaning, serviceRepair],
   team: [teamOne, teamTwo, teamThree],
   icons: {

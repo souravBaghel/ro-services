@@ -15,7 +15,7 @@ export default function Hero({ onBook }) {
             <div className="flex flex-col gap-6">
               <span className="w-fit rounded-full bg-mint px-3 py-1.5 text-xs font-bold text-brand">★ #1 Rated Home Services</span>
               <h1 className="text-4xl font-extrabold leading-[1.15] text-ink sm:text-5xl lg:text-[54px]">
-                RO Water Purifier <br className="hidden sm:block" />Repair &amp; Installation
+                RO Water Purifier Repair &amp; Installation in Ahmedabad
                 <br className="hidden sm:block" />
                 <span className="text-brand"> Just One Click</span> Away
               </h1>

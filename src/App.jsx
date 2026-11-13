@@ -9,9 +9,13 @@ import Team from "./components/sections/Team";
 import FooterCTA from "./components/sections/FooterCTA";
 import Footer from "./components/sections/Footer";
 import BookingForm from "./components/ui/BookingForm";
+import AdminDashboard from "./components/ui/AdminDashboard";
 
 export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false);
+  if (window.location.pathname === "/admin" || window.location.pathname === "/admin/") {
+    return <AdminDashboard />;
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-page">

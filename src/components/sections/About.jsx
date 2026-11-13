@@ -15,7 +15,7 @@ export default function About({ onBook }) {
             <Overline>About</Overline>
             <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">Affordable Water Purifier Repair Services</h2>
             <p className="text-[15px] leading-relaxed text-muted">
-              Get reliable and affordable water purifier repair services from experienced technicians. We provide quick solutions for RO, UV, and other water purifier problems, including filter replacement, water leakage, low water flow, unusual noise, and purification issues. Our technicians use quality spare parts and provide transparent pricing with professional service at your doorstep.
+              Get reliable and affordable water purifier repair services in Ahmedabad from experienced technicians. We provide quick solutions for RO, UV, and other water purifier problems, including filter replacement, water leakage, low water flow, unusual noise, and purification issues. Our technicians use quality spare parts and provide transparent pricing with professional service at your doorstep.
             </p>
           </div>
           <Checklist items={aboutChecks} />
