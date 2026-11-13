@@ -2,6 +2,26 @@ import { useEffect, useMemo, useState } from "react";
 
 const fieldClass = "w-full rounded-md border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none focus:border-brand focus:ring-2 focus:ring-brand/20";
 
+async function readApiResponse(response) {
+  const contentType = response.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().includes("application/json")) {
+    throw new Error(
+      response.status === 404
+        ? "The admin API is not configured on this Vercel site. Connect a backend and persistent database to manage bookings."
+        : "The admin API returned an unexpected response. Check the backend configuration."
+    );
+  }
+
+  try {
+    return await response.json();
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      throw new Error("The admin API returned invalid JSON. Check the backend configuration.");
+    }
+    throw error;
+  }
+}
+
 function formatDate(value) {
   if (!value) return "Not specified";
   const date = new Date(`${value}T00:00:00`);
@@ -35,7 +55,7 @@ export default function AdminDashboard() {
     setError("");
     try {
       const response = await fetch("/api/admin/bookings");
-      const result = await response.json();
+      const result = await readApiResponse(response);
       if (response.status === 401) {
         setIsAuthenticated(false);
         return;
@@ -66,7 +86,7 @@ export default function AdminDashboard() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
-      const result = await response.json();
+      const result = await readApiResponse(response);
       if (!response.ok) throw new Error(result.error || "Admin login failed.");
       setPassword("");
       await loadBookings();
@@ -128,7 +148,7 @@ export default function AdminDashboard() {
           body: JSON.stringify(booking),
         }
       );
-      const result = await response.json();
+      const result = await readApiResponse(response);
       if (!response.ok) throw new Error(result.error || "Couldn't save the booking.");
       setIsEditorOpen(false);
       setEditingBooking(null);
@@ -149,7 +169,7 @@ export default function AdminDashboard() {
     setError("");
     try {
       const response = await fetch(`/api/admin/bookings/${booking.id}`, { method: "DELETE" });
-      const result = await response.json();
+      const result = await readApiResponse(response);
       if (!response.ok) throw new Error(result.error || "Couldn't delete the booking.");
       if (editingBooking?.id === booking.id) {
         setIsEditorOpen(false);
@@ -273,7 +293,7 @@ export default function AdminDashboard() {
               </label>
               <label className="grid gap-1.5 text-sm font-semibold">
                 Phone number
-                <input name="phone" type="tel" required maxLength="40" defaultValue={editingBooking?.phone || ""} className={fieldClass} />
+                <input name="phone" type="tel" inputMode="numeric" pattern="[0-9]{10}" required maxLength="10" defaultValue={editingBooking?.phone || ""} className={fieldClass} />
               </label>
               <label className="grid gap-1.5 text-sm font-semibold">
                 Service

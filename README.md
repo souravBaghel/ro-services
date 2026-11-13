@@ -23,10 +23,17 @@ Without `ADMIN_PASSWORD`, admin login remains disabled.
 In PowerShell, set the password before starting the API:
 
 ```powershell
-$env:ADMIN_PASSWORD = "admin"
+$env:ADMIN_PASSWORD = "choose-a-strong-password"
 npm run server
 ```
 
-SQLite stores data on the API server's disk. For production, the host must
-provide persistent writable storage; serverless hosts such as Vercel need a
-managed database and a host-specific API endpoint instead.
+## Vercel backend
+
+The Vercel API functions in `api/` use Neon PostgreSQL; the local `server.mjs`
+continues to use SQLite. In Vercel Project Settings, add `DATABASE_URL` from
+your Neon project and a strong `ADMIN_PASSWORD`, then redeploy. The functions
+create their required tables on first use.
+
+To copy local SQLite bookings to Neon, set `DATABASE_URL` in the local
+environment (or `.env`) and run `npm run import:sqlite`. The import is safe to
+rerun; rows already imported from the same SQLite database are skipped.
