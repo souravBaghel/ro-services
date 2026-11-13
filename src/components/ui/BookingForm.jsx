@@ -84,7 +84,24 @@ export default function BookingForm({ onClose }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(booking),
       });
-      const result = await response.json();
+      const contentType = response.headers.get("content-type") || "";
+      if (!contentType.toLowerCase().includes("application/json")) {
+        throw new Error(
+          response.status === 404
+            ? "Booking API route not found. Start the booking API and verify the /api proxy."
+            : "Booking service returned an unexpected response. Check the API server and try again."
+        );
+      }
+
+      let result;
+      try {
+        result = await response.json();
+      } catch (parseError) {
+        if (parseError instanceof SyntaxError) {
+          throw new Error("Booking service returned invalid JSON. Check the API route configuration.");
+        }
+        throw parseError;
+      }
 
       if (!response.ok) {
         throw new Error(result.error || "We couldn't save your booking. Please try again.");
